@@ -1,0 +1,58 @@
+* {
+    font-family: 'Calibri', 'Tahoma', 'Verdana', 'Arial', sans-serif;
+}
+
+html {
+    font-size: 12pt;
+    overflow: hidden;
+}
+
+body {
+    background: url('../img/club.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#poemInput textarea
+{
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    resize: none;
+    min-height: 10rem;
+}
+
+.modal {
+    max-width: 960px;
+}
+
+.credits {
+    font-size: 0.75rem;
+}
+
+.paper {
+    width: 60%;
+    min-width: 720px;
+    height: 100vh;
+    min-height: 720px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: 1.25rem;
+    background: url('../img/poem.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.paper p {
+    margin: 1rem;
+}
+
+/* jQuery Modal */
+.blocker {
+    background-color: rgba(235, 235, 188, 0.3);
+}
