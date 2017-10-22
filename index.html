@@ -4,31 +4,41 @@
         <title>DDLC Poem Generator</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/fonts.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
         <div id="mainModal" class="modal">
             <h1>Doki Doki Literature Club Poem Generator</h1>
-            <form id="poemInput">
-                <label for="poem">Your text goes here:</label>
-                <textarea id="poem" name="poem"></textarea>
-                <p>Font:</p>
-                <input type="radio" id="fontMonika" name="font"><label for="fontMonika">Monika</label>
-                <input type="radio" id="fontNatsuki" name="font"><label for="fontNatsuki">Natsuki</label>
-                <input type="radio" id="fontSayori" name="font"><label for="fontSayori">Sayori</label>
-                <input type="radio" id="fontYuri1" name="font"><label for="fontYuri1">Yuri 1</label>
-                <input type="radio" id="fontYuri2" name="font"><label for="fontYuri2">Yuri 2</label>
-                <input type="radio" id="fontYuri3" name="font"><label for="fontYuri3">Yuri 3</label>
-                <button id="generate">Generate</button>
+            <form id="poemInput" action="#">
+                <div class="input-row">
+                    <label for="poem">Your text goes here:</label>
+                    <textarea id="poem" name="poem"></textarea>
+                </div>
+                <div class="input-row">
+                    <label for="poemFont">Select font:</label>
+                    <select id="poemFont" name="poemFont">
+                        <option class="monika" selected>Monika</option>
+                        <option class="natsuki">Natsuki</option>
+                        <option class="sayori">Sayori</option>
+                        <option class="yuri1">Yuri A</option>
+                        <option class="yuri2">Yuri B</option>
+                        <option class="yuri3">Yuri C</option>
+                        <option class="special">Special</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <button id="generate">Generate!</button>
+                </div>
             </form>
             <h2>What is this?</h2>
-            <p>I whipped this up in a few hours so people can generate their own poems in a similar style to the DDLC in-game poem screen, which you can then conveniently screenshot. When you are done with the poem, just click anywhere to return to this screen.</p>
-            <p>Contribute by submitting a pull request over on the <a href="#" target="_blank">Github repo.</a></p>
+            <p>I whipped this up in a few hours so people can write their own poems in a similar style to the DDLC in-game poem screen, which you can then conveniently screenshot. When you are done with the poem, just click anywhere to return to this screen.</p>
+            <p>Contribute by submitting pull request, issues or feature requests over on the <a href="#" target="_blank">Github repo.</a></p>
             <p>Check out my other projects <a href="http://instilledbee.net" target="_blank">here</a> and at <a href="https://instilledbee.github.io" target="_blank">Github</a>. :)</p>
             <p class="credits"><a href="http://ddlc.moe" target="_blank">Doki Doki Literature Club!</a> Copyright&copy; <a href="http://teamsalvato.com" target="_blank">Team Salvato</a></p>
         </div>
         <div id="poemGen" class="paper">
-            <p>asd</p>
+            <pre class="monika"></pre>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -40,14 +50,26 @@
                         $("#mainModal").modal({
                             escapeClose: false,
                             clickClose: false,
-                            showClose: false
+                            showClose: false,
                         });
                     }
                 });
 
+                // must click outside the poem area to close
+                $("#poemGen").click(function(e) {
+                    e.stopPropagation();
+                })
+
                 $("button").click(function(e) {
                     e.preventDefault();
-                })
+                    e.stopPropagation();
+                    $.modal.close();
+                    $("#poemGen").show();
+                });
+
+                $("#poem").on('input', function(e) {
+                    $("#poemGen pre").text(e.target.value);
+                });
             });
         </script>
     </body>

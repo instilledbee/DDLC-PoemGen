@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Journal';
+    src: url('journal.otf');
+}
+
+@font-face {
+    font-family: 'Ammys Handwriting';
+    src: url('ammys-handwriting.ttf');
+}
+
+@font-face {
+    font-family: 'As I Lay Dying';
+    src: url('as-i-lay-dying.ttf');
+}
+
+@font-face {
+    font-family: 'Damagrafik Script';
+    src: url('damagrafik-script.ttf');
+}
+
+@font-face {
+    font-family: 'Hashtag';
+    src: url('hashtag.ttf');
+}
+
+@font-face {
+    font-family: 'JP Hand Slanted';
+    src: url('jp-hand.ttf');
+}
+
+@font-face {
+    font-family: 'A Typewriter For Me';
+    src: url('ATypewriterForMe.ttf');
+}
