@@ -35,6 +35,11 @@
     font-family: 'A Typewriter For me';
 }
 
+@keyframes animatedBackground {
+	from { background-position: 50% 0; }
+	to { background-position: 50% -100vh; }
+}
+
 html {
     font-size: 12pt;
     overflow: hidden;
@@ -46,6 +51,13 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.hxppythxughts {
+    background: url('../img/eyes.png') repeat-y center center fixed;
+    background-color: #000000;
+
+    animation: animatedBackground 1.33s linear infinite;
 }
 
 /* Browser specific (not valid) styles to make preformatted text wrap */		
