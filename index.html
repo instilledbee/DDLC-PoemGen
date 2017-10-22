@@ -4,8 +4,9 @@
         <title>DDLC Poem Generator</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/fonts.min.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!--<link rel="stylesheet" type="text/css" href="bundle.min.css">-->
     </head>
     <body>
         <div id="mainModal" class="modal">
@@ -18,13 +19,13 @@
                 <div class="input-row">
                     <label for="poemFont">Select font:</label>
                     <select id="poemFont" name="poemFont">
-                        <option class="monika" selected>Monika</option>
-                        <option class="natsuki">Natsuki</option>
-                        <option class="sayori">Sayori</option>
-                        <option class="yuri1">Yuri A</option>
-                        <option class="yuri2">Yuri B</option>
-                        <option class="yuri3">Yuri C</option>
-                        <option class="special">Special</option>
+                        <option class="monika" value="monika" selected>Monika</option>
+                        <option class="natsuki" value="natsuki">Natsuki</option>
+                        <option class="sayori" value="sayori">Sayori</option>
+                        <option class="yuri1" value="yuri1">Yuri A</option>
+                        <option class="yuri2" value="yuri2">Yuri B</option>
+                        <option class="yuri3" value="yuri3">Yuri C</option>
+                        <option class="special" value="special">Special</option>
                     </select>
                 </div>
                 <div class="input-row">
@@ -42,35 +43,6 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                $("body").click(function() {
-                    if($("#poemGen").is(":visible")) {
-                        $("#poemGen").hide();
-                        $("#mainModal").modal({
-                            escapeClose: false,
-                            clickClose: false,
-                            showClose: false,
-                        });
-                    }
-                });
-
-                // must click outside the poem area to close
-                $("#poemGen").click(function(e) {
-                    e.stopPropagation();
-                })
-
-                $("button").click(function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    $.modal.close();
-                    $("#poemGen").show();
-                });
-
-                $("#poem").on('input', function(e) {
-                    $("#poemGen pre").text(e.target.value);
-                });
-            });
-        </script>
+        <script src="js/script.min.js"></script>
     </body>
 </html>

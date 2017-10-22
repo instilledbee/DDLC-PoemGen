@@ -48,12 +48,26 @@ body {
     background-size: cover;
 }
 
+/* Browser specific (not valid) styles to make preformatted text wrap */		
+/* From: https://css-tricks.com/snippets/css/make-pre-text-wrap/ */
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
 .input-row {
     margin: 0.75rem 0;
 }
 
 #poemFont {
     width: 90px;
+}
+
+#mainModal h1 {
+    margin: 1rem 0;
 }
 
 #poemInput textarea
@@ -97,13 +111,24 @@ body {
     user-select: none;
 
     cursor: default;
+
+    /* Show using JS */
+    display: none;
 }
 
-.paper p {
+.paper pre {
     margin: 1rem;
+    max-width: 100%;
 }
 
 /* jQuery Modal */
 .blocker {
     background-color: rgba(235, 235, 188, 0.4);
+}
+
+.modal {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 4px solid #FFBDE1;
+    background: #FFE6F4;
 }
