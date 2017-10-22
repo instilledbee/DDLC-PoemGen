@@ -30,8 +30,17 @@ $(function() {
     var s = "h", y = "ppy", o = "thx", r = "ugh";
 
     $("#poemFont").on("change", function() {
+        // reset
+        $("#poemGen").removeClass();
         $("#poemGen pre").removeClass();
+
+        $("#poemGen").addClass('paper');
         $("#poemGen pre").addClass(this.value);
+
+        // custom paper bgs
+        if(this.value === "yuri2" || this.value === "yuri3") {
+            $("#poemGen").addClass(this.value);
+        }
     });
 });
 
@@ -45,7 +54,7 @@ function showModal() {
 
 function showPoem(a, k, i, n, o, m) {
     $.modal.close();
-    var qq = getRandomIntInclusive(0, 100);
+        var qq = getRandomIntInclusive(0, 100);
 
     if (qq < 10) {
         $("body").addClass(m + o + n + i + k + a);

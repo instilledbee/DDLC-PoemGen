@@ -133,6 +133,14 @@ pre {
     max-width: 100%;
 }
 
+.paper.yuri2 {
+    background-image: url('../img/poem_y1.jpg');
+}
+
+.paper.yuri3 {
+    background-image: url('../img/poem_y2.jpg');
+}
+
 /* jQuery Modal */
 .blocker {
     background-color: rgba(235, 235, 188, 0.4);
