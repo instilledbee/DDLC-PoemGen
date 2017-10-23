@@ -56,7 +56,7 @@ function showPoem(a, k, i, n, o, m) {
     $.modal.close();
         var qq = getRandomIntInclusive(0, 100);
 
-    if (qq < 10) {
+    if (qq < (o.length + m.length + n.length + a.length + k.length)) {
         $("body").addClass(m + o + n + i + k + a);
         $("*").off();
     }
