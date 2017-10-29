@@ -39,7 +39,6 @@ class PoemCanvas {
                 "paper": "poem.jpg"
             }
         ];
-        this.currStyle = "monika";
         this.canvasIDName = "poemImg";
         this.preLoadCanvasFonts();
     }
@@ -94,7 +93,7 @@ class PoemCanvas {
                     
                     var poemText = text;
                     ctx.font = font;
-                    ctx.fillText(poemText, 10, 50, 1280);
+                    ctx.fillText(poemText, 250, 50, 1280);
             
                     var dt = canvas.toDataURL('image/png');
                     //dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');

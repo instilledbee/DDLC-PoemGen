@@ -4,6 +4,7 @@ $(function() {
     // show modal
     showModal();
     var poemCanvas = new PoemCanvas();
+    poemCanvas.style = "monika";
 
     $("body").click(function() {
         if($("#poemGen").is(":visible")) {
