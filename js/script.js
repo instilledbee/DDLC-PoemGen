@@ -9,7 +9,6 @@ $(function() {
     $("body").click(function() {
         if($("#poemGen").is(":visible")) {
             $("#poemGen").fadeOut(1000, showModal);
-            toggleButtons(true);
         }
     });
 
