@@ -3,6 +3,7 @@
 $(function() {
     // show modal
     showModal();
+    var poemCanvas = new PoemCanvas();
 
     $("body").click(function() {
         if($("#poemGen").is(":visible")) {
@@ -26,7 +27,7 @@ $(function() {
     $("#download").click(function(e) {
         e.preventDefault();
         e.stopPropagation();
-        createDownload();
+        poemCanvas.createDownload($("#poem").val());
     });
 
     $("#poem").on("input", function(e) {
@@ -47,6 +48,8 @@ $(function() {
         if(this.value === "yuri2" || this.value === "yuri3") {
             $("#poemGen").addClass(this.value);
         }
+
+        poemCanvas.style = this.value;
     });
 });
 
@@ -68,43 +71,6 @@ function showPoem(a, k, i, n, o, m) {
     }
     else {
         $("#poemGen").fadeIn(1000);
-    }
-}
-
-function createDownload() {
-    var canvas = document.getElementById("poemImg");
-
-    if (canvas.getContext) {
-        var ctx = canvas.getContext("2d");
-
-        var club = new Image();
-        club.onload = function() { 
-            ctx.drawImage(club, 0, 0); 
-            
-            var paper = new Image();
-            paper.onload = function() { 
-                ctx.drawImage(paper, 240, 0); 
-                
-                var poemText = $("#poemGen pre").text();
-                ctx.font = "16pt Journal";
-                ctx.fillText(poemText, 10, 50, 1280);
-        
-                var dt = canvas.toDataURL('image/png');
-                //dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
-                //dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
-        
-                var link = document.createElement("a");
-                link.download = "poem.png";
-                link.href = dt;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            };
-            paper.src = 'img/poem.jpg';
-        };
-        club.src = 'img/club.png';
-    } else {
-        alert("Sorry, your browser doesn't support image generation!");
     }
 }
 
