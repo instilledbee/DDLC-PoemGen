@@ -7,50 +7,50 @@ class PoemCanvas {
                 "class": "monika",
                 "font": "15.5pt Journal",
                 "paper": "poem.jpg",
-                "maxLength": 175,
-                "lineHeight": 16
+                "maxLength": 147,
+                "lineHeight": 20
             },
             {
                 "class": "natsuki",
                 "font": "15pt Ammys Handwriting",
                 "paper": "poem.jpg",
-                "maxLength": 85,
-                "lineHeight": 16
+                "maxLength": 82,
+                "lineHeight": 23
             },
             {
                 "class": "yuri1",
                 "font": "16.25pt JP Hand Slanted",
                 "paper": "poem.jpg",
                 "maxLength": 133,
-                "lineHeight": 16
+                "lineHeight": 22
             },
             {
                 "class": "yuri2",
                 "font": "16.5pt As I Lay Dying",
                 "paper": "poem_y1.jpg",
-                "maxLength": 170,
-                "lineHeight": 16
+                "maxLength": 168,
+                "lineHeight": 22
             },
             {
                 "class": "special",
                 "font": "15.5pt A Typewriter For Me", 
                 "paper": "poem.jpg",
-                "maxLength": 67,
-                "lineHeight": 18
+                "maxLength": 63,
+                "lineHeight": 21
             },
             {
                 "class": "yuri3",
                 "font": "16.75pt Damagrafik Script", 
                 "paper": "poem_y2.jpg",
-                "maxLength": 33,
-                "lineHeight": 16
+                "maxLength": 30,
+                "lineHeight": 19
             },
             {
                 "class": "sayori",
                 "font": "18.75pt Hashtag", 
                 "paper": "poem.jpg",
-                "maxLength": 122,
-                "lineHeight": 16
+                "maxLength": 104,
+                "lineHeight": 22
             }
         ];
         this.canvasIDName = "poemImg";
@@ -110,7 +110,7 @@ class PoemCanvas {
                     ctx.drawImage(paper, 240, 0);
                     ctx.font = font;
                     for(var i = 0; i < text.length; ++i) {
-                        ctx.fillText(text[i], 265, 45 + (lineHeight * i), 1280);
+                        ctx.fillText(text[i], 265, 50 + (lineHeight * i), 1280);
                     }
             
                     var dt = canvas.toDataURL('image/png');
