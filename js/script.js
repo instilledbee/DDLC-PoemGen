@@ -9,6 +9,7 @@ $(function() {
     $("body").click(function() {
         if($("#poemGen").is(":visible")) {
             $("#poemGen").fadeOut(1000, showModal);
+            toggleButtons(true);
         }
     });
 
@@ -20,15 +21,18 @@ $(function() {
     var a = "x", i = "ts";
 
     $("#generate").click(function(e) {
+        toggleButtons(false);
         e.preventDefault();
         e.stopPropagation();
         showPoem(i, r, o, y, a, s);
     });
 
     $("#download").click(function(e) {
+        toggleButtons(false);
         e.preventDefault();
         e.stopPropagation();
         poemCanvas.createDownload($("#poem").val());
+        toggleButtons(true);
     });
 
     $("#poem").on("input", function(e) {
@@ -53,6 +57,11 @@ $(function() {
         poemCanvas.style = this.value;
     });
 });
+
+function toggleButtons(isEnabled) {
+    $("#download").attr("disabled", isEnabled);
+    $("#generate").attr("disabled", isEnabled);
+}
 
 function showModal() {
     $("#mainModal").modal({
