@@ -7,43 +7,50 @@ class PoemCanvas {
                 "class": "monika",
                 "font": "15.5pt Journal",
                 "paper": "poem.jpg",
-                "maxLength": 175
+                "maxLength": 175,
+                "lineHeight": 16
             },
             {
                 "class": "natsuki",
                 "font": "15pt Ammys Handwriting",
                 "paper": "poem.jpg",
-                "maxLength": 85
+                "maxLength": 85,
+                "lineHeight": 16
             },
             {
                 "class": "yuri1",
                 "font": "16.25pt JP Hand Slanted",
                 "paper": "poem.jpg",
-                "maxLength": 133
+                "maxLength": 133,
+                "lineHeight": 16
             },
             {
                 "class": "yuri2",
                 "font": "16.5pt As I Lay Dying",
                 "paper": "poem_y1.jpg",
-                "maxLength": 170
+                "maxLength": 170,
+                "lineHeight": 16
             },
             {
                 "class": "special",
                 "font": "15.5pt A Typewriter For Me", 
                 "paper": "poem.jpg",
-                "maxLength": 67
+                "maxLength": 67,
+                "lineHeight": 18
             },
             {
                 "class": "yuri3",
                 "font": "16.75pt Damagrafik Script", 
                 "paper": "poem_y2.jpg",
-                "maxLength": 33
+                "maxLength": 33,
+                "lineHeight": 16
             },
             {
                 "class": "sayori",
                 "font": "18.75pt Hashtag", 
                 "paper": "poem.jpg",
-                "maxLength": 122
+                "maxLength": 122,
+                "lineHeight": 16
             }
         ];
         this.canvasIDName = "poemImg";
@@ -85,10 +92,13 @@ class PoemCanvas {
         var canvas = document.getElementById(this.canvasIDName);
 
         if (canvas.getContext) {
-            var ctx = canvas.getContext("2d");
+            // "extract" the style properties so the img onload callback contexts can access them
             var paperPath = 'img/' + this.currStyle.paper;
             var font = this.currStyle.font;
+            var lineHeight = this.currStyle.lineHeight;
             text = this.chunkString(text);
+
+            var ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, 1280, 720);
 
             var club = new Image();
@@ -100,7 +110,7 @@ class PoemCanvas {
                     ctx.drawImage(paper, 240, 0);
                     ctx.font = font;
                     for(var i = 0; i < text.length; ++i) {
-                        ctx.fillText(text[i], 265, 45 + (15 * i), 1280);
+                        ctx.fillText(text[i], 265, 45 + (lineHeight * i), 1280);
                     }
             
                     var dt = canvas.toDataURL('image/png');
