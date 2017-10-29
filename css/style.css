@@ -53,6 +53,10 @@ body {
     background-size: cover;
 }
 
+canvas {
+    display: none;
+}
+
 .hxppythxughts {
     background: url('../img/eyes.png') repeat-y center center fixed;
     background-color: #000000;
