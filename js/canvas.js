@@ -7,43 +7,43 @@ class PoemCanvas {
                 "class": "monika",
                 "font": "15.5pt Journal",
                 "paper": "poem.jpg",
-                "maxLength": 110
+                "maxLength": 175
             },
             {
                 "class": "natsuki",
-                "font": "16pt Ammys Handwriting",
+                "font": "15pt Ammys Handwriting",
                 "paper": "poem.jpg",
-                "maxLength": 110
+                "maxLength": 85
             },
             {
                 "class": "yuri1",
-                "font": "16pt JP Hand Slanted",
+                "font": "16.25pt JP Hand Slanted",
                 "paper": "poem.jpg",
-                "maxLength": 110
+                "maxLength": 133
             },
             {
                 "class": "yuri2",
-                "font": "16pt As I Lay Dying",
+                "font": "16.5pt As I Lay Dying",
                 "paper": "poem_y1.jpg",
-                "maxLength": 110
+                "maxLength": 170
             },
             {
                 "class": "special",
-                "font": "16pt A Typewriter For Me", 
+                "font": "15.5pt A Typewriter For Me", 
                 "paper": "poem.jpg",
-                "maxLength": 110
+                "maxLength": 67
             },
             {
                 "class": "yuri3",
-                "font": "16pt Damagrafik Script", 
+                "font": "16.75pt Damagrafik Script", 
                 "paper": "poem_y2.jpg",
-                "maxLength": 110
+                "maxLength": 33
             },
             {
                 "class": "sayori",
-                "font": "16pt Hashtag", 
+                "font": "18.75pt Hashtag", 
                 "paper": "poem.jpg",
-                "maxLength": 110
+                "maxLength": 122
             }
         ];
         this.canvasIDName = "poemImg";
@@ -100,7 +100,7 @@ class PoemCanvas {
                     ctx.drawImage(paper, 240, 0);
                     ctx.font = font;
                     for(var i = 0; i < text.length; ++i) {
-                        ctx.fillText(text[i], 260, 40 + (15 * i), 1280);
+                        ctx.fillText(text[i], 265, 45 + (15 * i), 1280);
                     }
             
                     var dt = canvas.toDataURL('image/png');
