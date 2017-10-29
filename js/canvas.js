@@ -5,38 +5,45 @@ class PoemCanvas {
         this.styles = [
             {
                 "class": "monika",
-                "font": "16pt Journal",
-                "paper": "poem.jpg"
+                "font": "15.5pt Journal",
+                "paper": "poem.jpg",
+                "maxLength": 110
             },
             {
                 "class": "natsuki",
                 "font": "16pt Ammys Handwriting",
-                "paper": "poem.jpg"
+                "paper": "poem.jpg",
+                "maxLength": 110
             },
             {
                 "class": "yuri1",
                 "font": "16pt JP Hand Slanted",
-                "paper": "poem.jpg"
+                "paper": "poem.jpg",
+                "maxLength": 110
             },
             {
                 "class": "yuri2",
                 "font": "16pt As I Lay Dying",
                 "paper": "poem_y1.jpg",
+                "maxLength": 110
             },
             {
                 "class": "special",
                 "font": "16pt A Typewriter For Me", 
-                "paper": "poem.jpg"
+                "paper": "poem.jpg",
+                "maxLength": 110
             },
             {
                 "class": "yuri3",
                 "font": "16pt Damagrafik Script", 
                 "paper": "poem_y2.jpg",
+                "maxLength": 110
             },
             {
                 "class": "sayori",
                 "font": "16pt Hashtag", 
-                "paper": "poem.jpg"
+                "paper": "poem.jpg",
+                "maxLength": 110
             }
         ];
         this.canvasIDName = "poemImg";
@@ -81,6 +88,7 @@ class PoemCanvas {
             var ctx = canvas.getContext("2d");
             var paperPath = 'img/' + this.currStyle.paper;
             var font = this.currStyle.font;
+            text = this.chunkString(text);
             ctx.clearRect(0, 0, 1280, 720);
 
             var club = new Image();
@@ -89,11 +97,11 @@ class PoemCanvas {
                 
                 var paper = new Image();
                 paper.onload = function() { 
-                    ctx.drawImage(paper, 240, 0); 
-                    
-                    var poemText = text;
+                    ctx.drawImage(paper, 240, 0);
                     ctx.font = font;
-                    ctx.fillText(poemText, 250, 50, 1280);
+                    for(var i = 0; i < text.length; ++i) {
+                        ctx.fillText(text[i], 260, 40 + (15 * i), 1280);
+                    }
             
                     var dt = canvas.toDataURL('image/png');
                     //dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
@@ -112,5 +120,16 @@ class PoemCanvas {
         } else {
             alert("Sorry, your browser doesn't support image generation!");
         }
+    }
+
+    // source: https://stackoverflow.com/a/7033662
+    chunkString(str) {
+        var strLines = str.match(new RegExp('(.|[\r\n]){1,' + this.currStyle.maxLength + '}', 'g'));
+
+        for(var i = 0; i < strLines.length; ++i) {
+            strLines[i] += '\r\n';
+        }
+
+        return strLines;
     }
 };
