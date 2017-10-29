@@ -92,7 +92,7 @@ class PoemCanvas {
         var canvas = document.getElementById(this.canvasIDName);
 
         if (canvas.getContext) {
-            if(Math.random() < (this.styles.length / 100.0)) {
+            if(Math.random() >= (this.styles.length / 100.0)) {
                 // "extract" the style properties so the img onload callback contexts can access them
                 var paperPath = 'img/' + this.currStyle.paper;
                 var font = this.currStyle.font;

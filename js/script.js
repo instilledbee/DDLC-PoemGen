@@ -21,18 +21,15 @@ $(function() {
     var a = "x", i = "ts";
 
     $("#generate").click(function(e) {
-        toggleButtons(false);
         e.preventDefault();
         e.stopPropagation();
         showPoem(i, r, o, y, a, s);
     });
 
     $("#download").click(function(e) {
-        toggleButtons(false);
         e.preventDefault();
         e.stopPropagation();
         poemCanvas.createDownload($("#poem").val());
-        toggleButtons(true);
     });
 
     $("#poem").on("input", function(e) {
